@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: rgb(170, 226, 168);
+        }
+
+        img{
+            width: 150px;
+            cursor: pointer;
+        }
+
+
+        button{
+            margin: 10px;
+            background-color: aqua;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #container {
+            width: 700px;
+            height: max-content;
+            margin: 0px auto;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: rgb(94, 130, 161);
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            box-shadow: 10px 10px 10px rgb(82, 82, 82);
+            text-shadow: 2px 2px 5px black;
+        }
+
+        @media (max-width: 700px){
+            #container{
+                width: 300px;
+                height: max-content;
+            } 
+
+        }
+    </style>
+    <div id="container">
+        <h1 id="titulo">Juego de matar, aplastar y sangriento (se recomenda discresión)</h1>
+        <p>Pulsa al personaje para atacar</p>
+        <img src="player.png" alt="" onclick="atacar()"><br>
+        <button onclick="newVida()">Reiniciar vida</button><br>
+        <button onclick="ownLife()">Introducir vida personalizada</button><br>
+        <button onclick="ownAttack()">Introducir daño por ataque personalizado</button><br>
+    </div>
+
+    <script>
+        var vida = 20;
+        var ataque = 1;
+
+            function newVida(){
+                vida = 20;
+                alert("Ahora mi vida es: " + vida);
+            }
+
+            function ownLife(){
+                vida = prompt("Ingresa la vida que quieres: ")
+                if (vida == null){
+                    alert("Vida inválida, por favor ingresa otra :)")
+                    vida = prompt("Ingresa la vida que quieres: ")
+                }
+            }
+
+            function ownAttack(){
+                ataque = prompt("Ingresa el daño por ataque que quieres: ")
+            }
+
+            function atacar(){
+                if (vida > 0){
+                    vida -= ataque;
+                    alert(vida);
+                }else if (vida == 0){
+                    alert("Ya estoy muerto :'D (Pulsa el botón para reiniciar)")
+                }
+            }
+
+
+    </script>
+</body>
+</html>
