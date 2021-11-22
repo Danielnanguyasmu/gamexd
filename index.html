@@ -78,12 +78,16 @@
 
             function ownAttack(){
                 ataque = prompt("Ingresa el daño por ataque que quieres: ")
+                if(ataque == 0 || ataque > vida || ataque == null){
+                    alert("Daño por ataque inválido");
+                    ownAttack();
+                }
             }
 
             function atacar(){
                 if (vida > 0){
                     vida -= ataque;
-                    alert("Me bajaste " + ataque + ". " + "Ahora tengo: " + vida + " de vida")
+                    alert(vida);
                 }else if (vida == 0){
                     alert("Ya estoy muerto :'D (Pulsa el botón para reiniciar)")
                 }
